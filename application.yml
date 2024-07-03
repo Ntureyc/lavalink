@@ -1,0 +1,141 @@
+lavalink:
+  plugins:
+    - dependency: com.github.topi314.lavasrc:lavasrc-plugin:4.1.1
+      snapshot: false
+    - dependency: dev.lavalink.youtube:youtube-plugin:1.3.0
+      snapshot: false
+  pluginsDir: ./plugins
+  server:
+    bufferDurationMs: 400
+    filters:
+      channelMix: true
+      distortion: true
+      equalizer: true
+      karaoke: true
+      lowPass: true
+      rotation: true
+      timescale: true
+      tremolo: true
+      vibrato: true
+      volume: true
+    frameBufferDurationMs: 5000
+    gc-warnings: true
+    opusEncodingQuality: 10
+    password: youshallnotpass
+    playerUpdateInterval: 5
+    resamplingQuality: MEDIUM
+    soundcloudSearchEnabled: true
+    sources:
+      bandcamp: true
+      http: true
+      local: true
+      mixer: true
+      nico: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      youtube: false
+    trackStuckThresholdMs: 10000
+    useSeekGhosting: true
+    youtubeConfig:
+      email:
+      password:
+    youtubePlaylistLoadLimit: 6
+    youtubeSearchEnabled: true
+logging:
+  file:
+    path: ./logs/
+  level:
+    com.github.topi314.lavasrc.LavaSrcTools: "OFF"
+    com.sedmelluq.discord.lavaplayer.source.youtube.YoutubePersistentHttpStream: "OFF"
+    com.sedmelluq.discord.lavaplayer.tools.ExceptionTools: "OFF"
+    com.sedmelluq.discord.lavaplayer.tools.io.PersistentHttpStream: "OFF"
+    dev.lavalink.youtube.YoutubeAudioSourceManager: "OFF"
+    lavalink: INFO
+    lavalink.server.io.SocketContext: "OFF"
+    root: INFO
+  logback:
+    rollingpolicy:
+      max-file-size: 1GB
+      max-history: 30
+  request:
+    enabled: true
+    includeClientInfo: true
+    includeHeaders: false
+    includePayload: true
+    includeQueryString: true
+    maxPayloadLength: 10000
+metrics:
+  prometheus:
+    enabled: false
+    endpoint: /metrics
+plugins:
+  lavasrc:
+    applemusic:
+      albumLoadLimit: 6
+      countryCode: US
+      mediaAPIToken: your access token
+      playlistLoadLimit: 6
+    deezer:
+      masterDecryptionKey: your master decryption key
+    flowerytts:
+      audioFormat: mp3
+      silence: 0
+      speed: 1
+      translate: false
+      voice: default voice
+    lyrics-sources:
+      deezer: false
+      spotify: false
+      yandexmusic: false
+      youtube: false
+    providers:
+      - ytsearch:"%ISRC%"
+      - ytsearch:%QUERY%
+      - ytmsearch:"%ISRC%"
+      - ytmsearch:%QUERY%
+      - scsearch:%QUERY%
+      - spsearch:%QUERY%
+      - sprec:%QUERY%
+      - amsearch:%QUERY%
+      - dzisrc:%ISRC%
+      - dzsearch:%QUERY%
+      - ymsearch:%QUERY%
+      - ymrec:%QUERY%
+    sources:
+      applemusic: false
+      deezer: false
+      flowerytts: false
+      spotify: false
+      yandexmusic: false
+      youtube: true
+    spotify:
+      albumLoadLimit: 6
+      clientId: your client id
+      clientSecret: your client secret
+      countryCode: US
+      playlistLoadLimit: 6
+      spDc: ""
+    yandexmusic:
+      accessToken: your access token
+      albumLoadLimit: 1
+      artistLoadLimit: 1
+      playlistLoadLimit: 1
+    youtube:
+      countryCode: US
+  youtube:
+    allowDirectPlaylistIds: true
+    allowDirectVideoIds: true
+    allowSearch: true
+    clients:
+      - MUSIC
+      - ANDROID
+      - WEB
+      - TVHTML5EMBEDDED
+    enabled: true
+sentry:
+  dsn: ""
+  environment: ""
+server:
+  address: 0.0.0.0
+  port: 2333
